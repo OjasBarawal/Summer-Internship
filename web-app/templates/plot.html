@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Stocks Graph</title>
+    <link rel="stylesheet" href="{{static, 'static/main.css'}}" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src={{cdn_js | safe}}></script>
+
+    <style>
+    * {scroll-behavior: smooth;}
+    body {font-family: "Raleway", Arial, sans-serif}
+    .w3-row img {margin-bottom: -8px}
+    </style>
+</head>
+<body>
+<!-- !PAGE CONTENT! -->
+<div class="w3-content" style="max-width:1600px">
+
+  <!-- Header -->
+  <header class="w3-container w3-xlarge w3-padding-24 w3-light-grey">
+    <a href="#" class="w3-left w3-button w3-light-grey">Google Stocks Web Graph</a>
+    <a href="{{url_for('home')}}" class="w3-right w3-button w3-light-grey">Home</a>
+  </header>
+
+    <!-- Web Graph -->
+  <div class="about w3-center">
+            <h1 style="font-family: 'Raleway', Arial, sans-serif">Google Stock Market CandleStick Graph</h1>
+            <p>Stocks represented from March,2021 to July,2021</p>
+      </div>
+      {{script1 | safe}}
+      {{div1 | safe}}
+    <br>
+    <div class="w3-center">
+        <p style="font-size: 2rem;">Want to know how it works..! Scroll Down &darr;</p>
+    </div>
+    <div class="w3-left">
+        <p><b style="font-size: 4rem;">Hii,<br>Let's Talk About this graph,</b></p>
+        <p><b style="font-size: 4rem;">It's Features, & it's Specifications.</b></p><br>
+        <p style="font-size: 2rem;"><b>What does it represents to ?</b><br>&nbsp;The Above Chart represents the Google Stocks for the time-period of March-2021 to July-2021</p>
+        <p style="font-size: 2rem;"><b>What tools/technologies are used here ?</b><br>&nbsp;I've used a set of tools/technologies in creating this Web-Graph includes,
+            <ul style="font-size: 2rem;">
+                <li>Technologies - Python</li>
+                <li>Libraries - Pandas, Bokeh, and Flask</li>
+                <li>Development - PyCharm, Jupyter Notebook, Heroku</li>
+            </ul>
+        </p>
+        <p style="font-size: 2rem;"><b>What are the Features ?</b><br>&nbsp;This is a CandleStick Graph developed using Bokeh (library for Plotting Graphs), this is an interactive graph
+            that can be used for :
+            <ol style="font-size: 2rem;">
+                <li><b>Pan</b> - This is the default selected option, so that you can move the graph using the Mouse.</li>
+                <li><b>Box Zoom</b> - This option can be used for Zooming-In the graph, in order to view the stats more clearly. this can be done using Mouse and drawing a square on the graph, so it will be in a Zoomed state.</li>
+                <li><b>Wheel Zoom</b> - This option can be used to scroll Zoom-in-out through the Mouse's Wheel.</li>
+                <li><b>Save</b> - This option can be used to save the following graph into your system in (.png) format.</li>
+                <li><b>Reset</b> - This option can be used to reset the Graph, if you've been stucked in Zooming-in or out.</li>
+            </ol>
+        </p>
+        <p style="font-size: 2rem;"><b>What are it's Specifications ?</b><br>&nbsp;The Specifications are as <br>&emsp; The Graph is build on the library Bokeh using Python, Pandas and deployed on Live Server using Heroku
+            <br> <br>Working with the app : I've Imported libraries such as <code>datetime, Pandas_datareader, bokeh.plotting, bokeh.resources, and bokeh.embed</code>, these are libraries plays the role for the creation of the Graph and Flask in making of the Web part.
+            Here i've used Python programming language, and first and foremost part is importing the library after that, pandas_datareader is used for the reading the `<a
+                    href="https://in.finance.yahoo.com/quote/GOOG?p=GOOG&.tsrc=fin-srch" target="_blank">GOOG</a>` (Google) stock data from `<a
+                    href="https://in.finance.yahoo.com/" target="_blank">finance.yahoo</a>`, and from the time-period,
+            of March-July,2021, after reading and processing the data is done, <br><br>
+            the function came in, for checking the increase and decrease in Stocks for comparing between `Closing price` to `Opening price` and then returning the value, following this, we've reached to the adding columns in our Data frame,
+            here now, i've added three columns to the dataframe (i.e: Status, Middle, and Height), these three are required for the formation of the square in the graph, these as : Status for top, and bottom of the square, Middle for mean of top and bottom
+            values, and Height for the left and right side of the square,<br><br>
+            Now, We've have to plot the graph and styling too, so added a `<code>fig</code>` object for the figure imported from `<code>bokeh.plotting</code>` and giving the parameters such as, `<code>x_axis_type='datetime'</code>`, width, height, and sizing_mode.
+            <br>
+            Now, Plotting the graph, so providing them the parameters for Status, Middle, and the Height, to odd-one-out, filling the color as green for increase in Price and the line color as black and same for the decrease in Price graph but, the color used is red.
+            <br>
+            And the most important, the line which indicates for the low price of the stocks, and in order to embed this graph in the web, i've scraped the javascript, and the CDN of the JS file using the <code>component</code> imported from the `<code>bokeh.embed, and bokeh.resources</code>`
+            and finally, returning the `<code>rendered_template</code>` from `<code>plot.html</code>` and define the JS Script, and the `<code>DIV</code>` present in `<code>plot.html</code>` and the CDN.
+            <br><br><br>
+        </p>
+        <p style="font-size: 4rem;">&nbsp;<b>And That's all,<br>Thank You being Here..!</b></p><br>
+        <p>&nbsp;You can reach me through <a href="mailto:ojasbarawal@gmail.com" target="_blank"><i class="fa fa-envelope w3-hover-opacity"></i></a></p>
+    </div>
+</div>
+</body>
+</html>
